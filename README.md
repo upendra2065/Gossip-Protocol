@@ -1,4 +1,4 @@
-# Cloud-Computing-Concepts: 
+# Cloud-Computing-Concepts-Part-1 : 
 *	https://www.coursera.org/specializations/cloud-computing
 
 # What is the project? 
@@ -35,3 +35,6 @@ typedef struct MessageHdr {
 	$ chmod +x GraderNew.sh
 	$ ./GraderNew.sh
 ```
+# Result
+*	Points achieved: 90 out of 90 [100%]
+	

@@ -1,4 +1,4 @@
- /**********************************
+/**********************************
  * FILE NAME: MP1Node.cpp
  *
  * DESCRIPTION: Membership protocol run by this Node.

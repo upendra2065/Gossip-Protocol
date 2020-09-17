@@ -8,17 +8,22 @@
 #***********************
 
 import urllib
-import urllib2
+import urllib.request
+# import urllib2
 import hashlib
 import random
 import email
 import email.message
 import email.encoders
-import StringIO
+# import StringIO
 import sys
 import subprocess
 import json
 import os
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIO
 
 """"""""""""""""""""
 """"""""""""""""""""
@@ -27,11 +32,11 @@ class NullDevice:
     pass
 
 def submit():   
-  print '==\n== [sandbox] Submitting Solutions \n=='
+  print('==\n== [sandbox] Submitting Solutions \n==')
   
   (login, password) = loginPrompt()
   if not login:
-    print '!! Submission Cancelled'
+    print('!! Submission Cancelled')
     return
 
   
@@ -51,17 +56,17 @@ def loginPrompt():
 
 def basicPrompt():
   """Prompt the user for login credentials. Returns a tuple (login, password)."""
-  login = raw_input('Login (Email address): ')
-  password = raw_input('One-time Password (from the assignment page. This is NOT your own account\'s password): ')
+  login = input('Login (Email address): ')
+  password = input('One-time Password (from the assignment page. This is NOT your own account\'s password): ')
   return login, password
 
 def partPrompt():
-  print 'Hello! These are the assignment parts that you can submit:'
+  print('Hello! These are the assignment parts that you can submit:')
   counter = 0
   for part in partFriendlyNames:
     counter += 1
-    print str(counter) + ') ' + partFriendlyNames[counter - 1]
-  partIdx = int(raw_input('Please enter which part you want to submit (1-' + str(counter) + '): ')) - 1
+    print(str(counter) + ') ' + partFriendlyNames[counter - 1])
+  partIdx = int(input('Please enter which part you want to submit (1-' + str(counter) + '): ')) - 1
   return (partIdx, partIds[partIdx])
 
 
@@ -89,11 +94,11 @@ def submitSolution(email_address,password, submissions):
       }
   }
   url = submit_url()
-  data = json.dumps(values)
-  req = urllib2.Request(url)
+  data = json.dumps(values).encode('utf-8')
+  req = urllib.request.Request(url)
   req.add_header('Content-Type', 'application/json')
   req.add_header('Cache-Control', 'no-cache')
-  response = urllib2.urlopen(req, data)
+  response = urllib.request.urlopen(req, data)
   return
 
 ## This collects the source code (just for logging purposes) 
