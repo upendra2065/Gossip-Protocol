@@ -18,9 +18,8 @@ typedef struct MessageHdr {
 }MessageHdr;
 ```
 *	Principle of **Gossip Protocol** :
-[reference](https://zhuanlan.zhihu.com/p/39703992)
 
-![image](https://github.com/kevin85421/Cloud-Computing-Concepts-Part-1/blob/master/gossip.jpg)
+![image](https://github.com/upendra2065/Gossip-Protocol/blob/master/gossip.jpg)
 
 	
 
@@ -35,6 +34,5 @@ typedef struct MessageHdr {
 	$ chmod +x GraderNew.sh
 	$ ./GraderNew.sh
 ```
-# Result
-*	Points achieved: 90 out of 90 [100%]
+ 
 	
